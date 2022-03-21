@@ -8,7 +8,12 @@ module.exports = {
     filename: "app.js",
     path: path.resolve(__dirname, "dist"),
   },
-  devtool: "none",
+  devtool: false,
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "/"),
+    },
+  },
   module: {
     rules: [
       {
@@ -21,5 +26,5 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"],
   },
-  plugin: [new CleanPlugin.CleanWebpackPlugin()],
+  plugins: [new CleanPlugin.CleanWebpackPlugin()],
 };
